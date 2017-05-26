@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Framework\Router;
 
+use Erik\App;
 use Framework\Http\{Request, Response};
 
 class Router
@@ -48,7 +49,7 @@ class Router
     protected function callAction($controller, $action)
     {
         $controller = '\\Erik\\Controllers\\' . $controller;
-        $controller = new $controller($this->request, new Response);
+        $controller = new $controller($this->request, App::get(Response::class));
 
         if (!method_exists($controller, $action)) {
             throw new \Exception("The Controller {$controller} can't respond to {$action} action.");
