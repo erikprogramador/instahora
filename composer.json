@@ -1,0 +1,29 @@
+{
+    "name": "erikprogramador/sem-hora-test",
+    "description": "",
+    "authors": [
+        {
+            "name": "Erik Vanderlei Fernandes",
+            "email": "erik.vanderlei.programador@outlook.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^6.1",
+        "mockery/mockery": "^0.9.9"
+    },
+    "require": {},
+    "autoload": {
+      "psr-4": {
+        "Erik\\": "src/",
+        "Framework\\": "framework/"
+      },
+      "files": [
+        "framework/functions.php"
+      ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}

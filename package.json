@@ -1,0 +1,24 @@
+{
+  "name": "sem-hora-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack --progress --hide-modules",
+    "watch": "cross-env NODE_ENV=development webpack --watch --progress --hide-modules",
+    "hot": "cross-env NODE_ENV=development webpack-dev-server --inline --hot",
+    "production": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.16.1",
+    "bulma": "^0.4.1",
+    "font-awesome": "^4.7.0",
+    "vue": "^2.3.3"
+  },
+  "devDependencies": {
+    "laravel-mix": "^0.12.0"
+  }
+}
