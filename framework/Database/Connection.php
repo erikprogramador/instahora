@@ -6,8 +6,20 @@ namespace Framework\Database;
 use PDO;
 use PDOException;
 
+/**
+ * Connection
+ *
+ * @author Erik Vanderlei Fernandes <erik.vanderlei.programador@outlook.com>
+ * @version 1.0.0
+ */
 class Connection
 {
+    /**
+     * Connect to the database
+     *
+     * @param  array $config The array with the configuration to connect
+     * @return PDO         The connection with the database
+     */
     public static function connect($config)
     {
         try {

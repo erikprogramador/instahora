@@ -5,7 +5,13 @@ namespace Erik\Controllers\Auth;
 
 use Erik\Controllers\Controller;
 
-class RegisterController extends Controller
+/**
+ * LoginController
+ *
+ * @author Erik Vanderlei Fernandes <erik.vanderlei.programador@outlook.com>
+ * @version 1.0.0
+ */
+class LoginController extends Controller
 {
     public function login()
     {
