@@ -40,11 +40,9 @@
 <style lang="scss" scoped>
   .alert-flash {
     position: fixed;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 600px;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
   }
 
   .show-notification-enter-active, .show-notification-leave-active {
@@ -52,12 +50,12 @@
   }
 
   .show-notification-enter {
-    transform: translateX(-50%) translateY(-100%);
+    transform: translateY(100%);
     opacity: 0;
   }
 
   .show-notification-leave-to {
-    transform: translateX(-50%) translateY(-100%);
+    transform: translateY(100%);
     opacity: 0;
   }
 </style>

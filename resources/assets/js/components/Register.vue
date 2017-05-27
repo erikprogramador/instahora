@@ -4,7 +4,7 @@
     <hr>
     <div class="field">
       <p class="control">
-        <input type="text" name="name" class="input is-primary" placeholder="Username" required>
+        <input type="text" name="username" class="input is-primary" placeholder="Username" required>
       </p>
     </div>
     <div class="field">

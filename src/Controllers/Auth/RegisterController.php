@@ -17,14 +17,16 @@ class RegisterController extends Controller
 {
     public function register()
     {
-        if (!$user = App::get(Auth::class)->register($this->request)) {
-            session('flash', 'Woops, something went wrong!');
+        try {
+            $user = App::get(Auth::class)->register($this->request);
+            session('flash', 'You are resgiter with success!');
+
+            return $this->response->redirect('home');
+        } catch (\Exception $e) {
+            session('flash', $e->getMessage());
+            dd($e->getMessage());
 
             return $this->response->redirect('');
         }
-
-        session('flash', 'You are resgiter with success!');
-
-        return $this->response->redirect('profile/' . $user->username);
     }
 }

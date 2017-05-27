@@ -1,12 +1,11 @@
 <?php
 
 use Erik\App;
-use Erik\Auth\Auth;
-use Erik\Auth\Login;
-use Framework\Http\Request;
-use Framework\Http\Response;
 use Framework\Router\Router;
+use Erik\Models\{User, Picture};
 use Framework\Database\Connection;
+use Erik\Auth\{Auth, Login, StoreUser};
+use Framework\Http\{Request, Response};
 use Framework\Http\Contracts\Response as ResponseInterface;
 
 App::define(Response::class, function () {
@@ -27,4 +26,16 @@ App::define(Connection::class, function () {
 
 App::define(Auth::class, function () {
     return new Login;
+});
+
+App::define(StoreUser::class, function () {
+    return new StoreUser;
+});
+
+App::define(User::class, function () {
+    return new User(App::get(Connection::class));
+});
+
+App::define(Picture::class, function () {
+    return new Picture(App::get(Connection::class));
 });

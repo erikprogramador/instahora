@@ -15,9 +15,11 @@
 </head>
 <body>
     <div id="app">
+        <?php includeView('layouts/partials/navigation'); ?>
+
         <?php require $content; ?>
 
-        <notification message="<?= session('flash') ?>"></notification>
+        <notification message="<?= $flash ?>"></notification>
     </div>
 
     <script src="/js/app.js" async></script>

@@ -17,14 +17,22 @@ class LoginController extends Controller
 {
     public function authenticate()
     {
-        if (!$user = App::get(Auth::class)->authenticate($this->request)) {
-            session('flash', 'Woops, something went wrong!');
+        try {
+            $user = App::get(Auth::class)->authenticate($this->request);
+
+            session('flash', 'You are logged with success!');
+            return $this->response->redirect('home');
+        } catch (\Exception $e) {
+            session('flash', $e->getMessage());
 
             return $this->response->redirect('');
         }
+    }
 
-        session('flash', 'You are logged with success!');
+    public function logout()
+    {
+        session('user', '');
 
-        return $this->response->redirect('profile/' . $user->username);
+        return $this->response->redirect('');
     }
 }

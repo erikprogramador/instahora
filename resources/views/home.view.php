@@ -1,9 +1,4 @@
 <section class="hero is-dark is-fullheight">
-    <!-- Hero header: will stick at the top -->
-
-    <?php includeView('layouts/partials/navigation'); ?>
-
-    <!-- Hero content: will be in the middle -->
     <div class="hero-body">
         <div class="container has-text-centered">
             <h1 class="title">

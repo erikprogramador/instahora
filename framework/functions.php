@@ -78,7 +78,8 @@ function includeView($view) {
  */
 function session($key, $value = null) {
     if (!is_null($value)) {
-        return $_SESSION[$key] = $value;
+        $_SESSION[$key] = $value;
+        return $_SESSION[$key];
     }
 
     if (!array_key_exists($key, $_SESSION)) {

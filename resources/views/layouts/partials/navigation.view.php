@@ -17,14 +17,20 @@
                 </a>
 
                 <?php if (auth()->check()): ?>
-                    <a href="/profile/username" class="nav-item">
-                        My name
+                    <a href="/home" class="nav-item">
+                        All Photos
+                    </a>
+                    <a href="/profile/<?= session('user')['username'] ?>" class="nav-item">
+                        <?= session('user')['username'] ?>
+                    </a>
+                    <a href="/logout" class="nav-item">
+                        Logout
                     </a>
                 <?php endif; ?>
 
                 <?php if (!auth()->check()): ?>
                     <span class="nav-item">
-                        <button class="button is-primary is-inverted" @click="isLogin = !isLogin">
+                        <button class="button is-info" @click="isLogin = !isLogin">
                             <span class="icon">
                                 <i class="fa fa-user-o"></i>
                             </span>
