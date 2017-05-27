@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Erik\Models;
 
+use Erik\App;
+use Erik\Models\User;
 use Framework\Database\Model;
 
 /**
@@ -14,11 +16,19 @@ use Framework\Database\Model;
 class Picture extends Model
 {
     protected $table = 'pictures';
+    protected $user;
 
-    public $id;
-    public $path;
-    public $description;
-    public $user_id;
-    public $created_at;
-    public $updated_at;
+    public function users()
+    {
+        $this->sql = sprintf(
+            'SELECT %s FROM %s INNER JOIN %s ON %s = %s',
+            $this->table . '.*, users.username',
+            $this->table,
+            'users',
+            $this->table . '.users_id',
+            'users.id'
+        );
+
+        return $this;
+    }
 }

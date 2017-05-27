@@ -19,7 +19,7 @@ class DashboardController extends Controller
     {
         $pictures = App::get(Picture::class)
             ->select()
-            // ->with(User::class)
+            ->users()
             ->get();
 
         return $this->response->view('dashboard', compact('pictures'));

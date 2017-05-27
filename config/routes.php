@@ -6,9 +6,9 @@ $router->get('home', 'DashboardController@index');
 /**
  * Profile
  */
-$router->get('profile/{username}', 'ProfileController@index');
-$router->get('picture/{picture}', 'ProfileController@picture');
-$router->post('upload/{username}', 'ProfileController@upload');
+$router->get('profile', 'ProfileController@index');
+$router->get('picture', 'ProfileController@picture');
+$router->post('upload', 'ProfileController@upload');
 
 /**
  * Authentication

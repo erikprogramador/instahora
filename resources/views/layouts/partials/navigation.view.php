@@ -20,7 +20,7 @@
                     <a href="/home" class="nav-item">
                         All Photos
                     </a>
-                    <a href="/profile/<?= session('user')['username'] ?>" class="nav-item">
+                    <a href="/profile?username=<?= session('user')['username'] ?>" class="nav-item">
                         <?= session('user')['username'] ?>
                     </a>
                     <a href="/logout" class="nav-item">
