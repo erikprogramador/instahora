@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Erik\Models;
 
+use Erik\App;
+use Erik\Models\Picture;
 use Framework\Database\Model;
 
 /**
@@ -15,10 +17,13 @@ class User extends Model
 {
     protected $table = 'users';
 
-    public $id;
-    public $username;
-    public $email;
-    public $description;
-    public $created_at;
-    public $updated_at;
+    public function pictures($username)
+    {
+        $user = $this->where('username', $username)->get()[0];
+        $this->username = $user->username;
+        $this->description = $user->description;
+        $this->pictures = App::get(Picture::class)->where('users_id', $user->id)->get();
+
+        return $this;
+    }
 }

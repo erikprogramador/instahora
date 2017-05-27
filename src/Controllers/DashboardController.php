@@ -18,7 +18,6 @@ class DashboardController extends Controller
     public function index()
     {
         $pictures = App::get(Picture::class)
-            ->select()
             ->users()
             ->get();
 
