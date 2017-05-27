@@ -13,5 +13,12 @@ use Framework\Database\Model;
  */
 class Picture extends Model
 {
-    //
+    protected $table = 'pictures';
+
+    public $id;
+    public $path;
+    public $description;
+    public $user_id;
+    public $created_at;
+    public $updated_at;
 }

@@ -38,7 +38,7 @@ class App
     public static function get($name)
     {
         if (!array_key_exists($name, static::$register)) {
-            throw new Exception("The {$name} was not found on the Service Container!");
+            throw new \Exception("The {$name} was not found on the Service Container!");
         }
 
         return static::$register[$name]();

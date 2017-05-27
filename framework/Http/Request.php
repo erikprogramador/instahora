@@ -55,7 +55,7 @@ class Request
      */
     public function uri()
     {
-        return trim($this->server['REQUEST_URI'], '/');
+        return explode('?', trim($this->server['REQUEST_URI'], '/'))[0];
     }
 
     /**
@@ -66,5 +66,18 @@ class Request
     public function type()
     {
         return $this->server['REQUEST_METHOD'];
+    }
+
+    public function get($key = null)
+    {
+        if (is_null($key)) {
+            return $this->request;
+        }
+
+        if (!array_key_exists($key, $this->request)) {
+            throw new \Exception("The key was not found!");
+        }
+
+        return $this->request[$key];
     }
 }

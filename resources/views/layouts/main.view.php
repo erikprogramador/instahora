@@ -15,7 +15,9 @@
 </head>
 <body>
     <div id="app">
-        <?php $content; ?>
+        <?php require $content; ?>
+
+        <notification message="<?= session('flash') ?>"></notification>
     </div>
 
     <script src="/js/app.js" async></script>

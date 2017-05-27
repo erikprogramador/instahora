@@ -36,9 +36,14 @@ class ViewResponse implements Response
     {
         ['view' => $view, 'data' => $data, 'layout' => $layout] = $responseData;
 
+        if (session('flash')) {
+            $flash = session('flash');
+            session('flash', '');
+        }
+
         extract($data);
 
-        $content = require_once $this->mountPath($view);
+        $content = $this->mountPath($view);
 
         return require_once $this->mountPath($layout);
     }

@@ -13,5 +13,12 @@ use Framework\Database\Model;
  */
 class User extends Model
 {
-    //
+    protected $table = 'users';
+
+    public $id;
+    public $username;
+    public $email;
+    public $description;
+    public $created_at;
+    public $updated_at;
 }

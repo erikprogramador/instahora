@@ -1,5 +1,9 @@
 <?php
 
+use Erik\App;
+use Erik\Auth\Auth;
+use Facebook\Facebook;
+
 /**
  * Vardump and die a value
  *
@@ -50,4 +54,45 @@ function config($file, $key) {
     }
 
     return $configFile[$key];
+}
+
+/**
+ * Include a view inside another view
+ *
+ * @param  string $view The view name to be loaded
+ */
+function includeView($view) {
+    if (!file_exists($viewPath = __DIR__ . '/../resources/views/' . $view . '.view.php')) {
+        throw new Exception("View not found on the path {$viewPath}");
+    }
+
+    return require_once $viewPath;
+}
+
+/**
+ * Set or get a session variable
+ *
+ * @param  string $key   The session key
+ * @param  string|null $value The value to associate
+ * @return mixed        The value of the session
+ */
+function session($key, $value = null) {
+    if (!is_null($value)) {
+        return $_SESSION[$key] = $value;
+    }
+
+    if (!array_key_exists($key, $_SESSION)) {
+        return null;
+    }
+
+    return $_SESSION[$key];
+}
+
+/**
+ * Return the auth instance
+ *
+ * @return Auth Auth instance
+ */
+function auth() {
+    return App::get(Auth::class);
 }

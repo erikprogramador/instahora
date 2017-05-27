@@ -7,3 +7,5 @@ require_once __DIR__ . '/database.php';
 require_once __DIR__ . '/register.php';
 
 date_default_timezone_set(config('app', 'timezone'));
+
+session_start();

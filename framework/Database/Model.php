@@ -11,5 +11,4 @@ namespace Framework\Database;
  */
 abstract class Model
 {
-
 }

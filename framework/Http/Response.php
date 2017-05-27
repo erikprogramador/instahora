@@ -22,4 +22,14 @@ class Response
     {
         return (new ViewResponse())->respond(compact('view', 'data', 'layout'));
     }
+
+    /**
+     * Redirect to a especific path
+     *
+     * @param  string $to Where to redirect
+     */
+    public function redirect($to)
+    {
+        header('location: /' . $to);
+    }
 }
