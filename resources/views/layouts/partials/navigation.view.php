@@ -20,6 +20,9 @@
                     <a href="/home" class="nav-item">
                         All Photos
                     </a>
+                    <a class="nav-item" @click.prevent="upload = true">
+                        Upload
+                    </a>
                     <a href="/profile?username=<?= session('user')['username'] ?>" class="nav-item">
                         <?= session('user')['username'] ?>
                     </a>

@@ -19,6 +19,8 @@
 
         <?php require $content; ?>
 
+        <upload :uploading="upload" @closed="upload = false"></upload>
+
         <notification message="<?= $flash ?>"></notification>
     </div>
 
